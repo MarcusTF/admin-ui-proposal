@@ -1,0 +1,56 @@
+
+/* --- custom-callout.css --- */  
+ .callout[data-callout="history"] {
+  --callout-color: 102, 102, 102;
+  --callout-icon: history;
+}
+
+.callout[data-callout="wrench"] {
+  --callout-color: 102, 102, 102;
+  --callout-icon: wrench;
+}
+
+.callout[data-callout="hidden"] {
+  --callout-color: 102, 102, 102;
+  --callout-icon: eye-off;
+}
+
+.callout[data-callout="hidden"] > .callout-content {
+  filter: blur(20px);
+}
+
+.callout[data-callout="hidden"] > .callout-content:hover {
+  filter: none;
+}
+
+strong.blur,
+strong.redact {
+  font-weight: normal;
+}
+
+.blur {
+  filter: blur(5px);
+}
+.blur:hover {
+  filter: none;
+}
+
+.redact {
+  position: relative;
+}
+.redact::after {
+  position: absolute;
+  background: black;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 3px;
+}
+.redact:hover::after {
+  display: none;
+}
+  
+
+

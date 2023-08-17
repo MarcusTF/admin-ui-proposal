@@ -1,0 +1,3199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proposal for Development of a Standardized Admin UI for Haneke Web Projects</title>
+    <base href="./" />
+    <meta id="root-path" root-path="./" />
+
+    <link
+      rel="icon"
+      sizes="96x96"
+      href="https://publish-01.obsidian.md/access/f786db9fac45774fa4f0d8112e232d67/favicon-96x96.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta charset="UTF-8" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
+
+    <link rel="stylesheet" href="lib/styles/obsidian-styles.css" />
+    <link rel="stylesheet" href="lib/styles/theme.css" />
+    <link rel="stylesheet" href="lib/styles/plugin-styles.css" />
+    <link rel="stylesheet" href="lib/styles/snippets.css" />
+    <style></style>
+
+    <script src="lib/scripts/webpage.js"></script>
+  </head>
+  <body
+    class="mod-macos is-frameless is-hidden-frameless obsidian-app native-scrollbars show-inline-title show-view-header is-maximized theme-dark"
+    style="
+      --zoom-factor: 1;
+      --accent-h: 18;
+      --accent-s: 85%;
+      --accent-l: 43%;
+      --font-interface-override: 'Atkinson Hyperlegible';
+      --font-text-override: 'atkinson hyperlegible';
+      --font-print-override: 'atkinson hyperlegible';
+      --font-monospace-override: 'IntelOne Mono';
+      --font-text-size: 15px;
+      --line-width: 50em;
+      --line-width-adaptive: 50em;
+      --file-line-width: 50em;
+      --content-width: 500em;
+      --sidebar-width: 25em;
+      --collapse-arrow-size: 0.4em;
+      --tree-horizontal-spacing: 1em;
+      --tree-vertical-spacing: 0.5em;
+      --sidebar-margin: 12px;
+    ">
+    <div class="webpage-container">
+      <div class="sidebar-left sidebar">
+        <div class="sidebar-content">
+          <div>
+            <label class="theme-toggle-container" for="theme_toggle"
+              ><input class="theme-toggle-input" type="checkbox" id="theme_toggle" />
+              <div class="toggle-background"></div
+            ></label>
+          </div>
+        </div>
+      </div>
+      <div class="document-container">
+        <div
+          class="markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings show-indentation-guide allow-fold-lists"
+          tabindex="-1"
+          style="tab-size: 4">
+          <style id="MJX-CHTML-styles"></style>
+          <div
+            class="markdown-preview-sizer markdown-preview-section"
+            style="
+              padding-bottom: ;
+              padding-top: var(--file-margins);
+              padding-right: var(--file-margins);
+              padding-left: var(--file-margins);
+              width: 100%;
+              position: absolute;
+            ">
+            <div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px"></div>
+            <div class="mod-header">
+              <div
+                class="inline-title"
+                contenteditable="true"
+                spellcheck="true"
+                autocapitalize="on"
+                tabindex="-1"
+                enterkeyhint="done">
+                Proposal for Development of a Standardized Admin UI for Haneke Web Projects
+              </div>
+            </div>
+            <div>
+              <h1
+                data-heading="Proposal for Development of a Standardized Admin UI for Haneke Web Projects"
+                id="Proposal_for_Development_of_a_Standardized_Admin_UI_for_Haneke_Web_Projects">
+                Proposal for Development of a Standardized Admin UI for Haneke Web Projects
+              </h1>
+            </div>
+            <div>
+              <h2 data-heading="Problem" id="Problem" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Problem
+              </h2>
+            </div>
+            <div>
+              <p>
+                The majority of Haneke's development projects either include an admin panel from the outset, or
+                eventually evolve a necessity for one eventually. In fact, some of our projects — such as the Cura
+                Transportation Management System — are essentially only an admin panel. This presents a problem where
+                many of our clients would greatly benefit from the production of a custom admin panel, but paying for
+                ground-up development of one is cost-prohibitive.
+              </p>
+            </div>
+            <div>
+              <h2 data-heading="Current Solutions" id="Current_Solutions" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Current Solutions
+              </h2>
+            </div>
+            <div>
+              <p>
+                To address this, we've used a variety of tools, services, and libraries to alleviate this including
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://strapi.io/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://strapi.io/"
+                  target="_blank"
+                  >Strapi</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://wordpress.com/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://wordpress.com/"
+                  target="_blank"
+                  >WordPress</a
+                >, and various
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://github.com/thoughtbot/administrate"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://github.com/thoughtbot/administrate"
+                  target="_blank"
+                  >Ruby on Rails admin-UI gems</a
+                >. All of these generally have the same fatal flaws: customizability and extensibility. Many of them
+                will allow for adjustments to the core functionality only through convoluted and restrictive
+                plugin-based systems that make the development process for extending the core functions restrictive,
+                painful, and/or impossible.
+              </p>
+            </div>
+            <div>
+              <h2 data-heading="Proposed Solution" id="Proposed_Solution" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Proposed Solution
+              </h2>
+            </div>
+            <div>
+              <p>
+                The proposed solution aims to address the need for a standardized Admin UI for Haneke web projects. By
+                creating a custom Admin UI built in React, we can provide clients with a highly customizable and
+                extensible template for their admin and dashboard user interfaces. This solution will alleviate the
+                cost-prohibitive nature of ground-up development for each project and offer a more efficient and
+                streamlined approach to building admin panels.
+              </p>
+            </div>
+            <div>
+              <h3 data-heading="Overview" id="Overview" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Overview
+              </h3>
+            </div>
+            <div>
+              <h4 data-heading="Initial Setup" id="Initial_Setup" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Initial Setup
+              </h4>
+            </div>
+            <div>
+              <ol>
+                <li data-line="0">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Storybook"
+                    data-href="#Storybook"
+                    href="#Storybook"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >A Storybook component library would be established to create the individual components of the
+                    system.</a
+                  >
+                </li>
+                <li data-line="1">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Adobe XD and Zeplin Template File"
+                    data-href="#Adobe XD and Zeplin Template File"
+                    href="#Adobe_XD_and_Zeplin_Template_File"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >An Adobe XD and Zeplin Template stylesheet and design will be created based on the component
+                    library.</a
+                  >
+                </li>
+                <li data-line="2">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="React Template Project"
+                    data-href="#React Template Project"
+                    href="#React_Template_Project"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >A standard React template project would be created that would use the Storybook component
+                    library.</a
+                  >
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h4 data-heading="Implementation" id="Implementation" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Implementation
+              </h4>
+            </div>
+            <div>
+              <ol>
+                <li data-line="0">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Definition"
+                    data-href="#Definition"
+                    href="#Definition"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >When the Product Strategy team is determining functionality for new projects, they can use the
+                    template project to determine what functionality exists within the current admin template, and what
+                    does not fit the template design.</a
+                  >
+                </li>
+                <li data-line="1">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Design"
+                    data-href="#Design"
+                    href="#Design"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >The design team uses the Adobe XD/Zeplin template in order to create a fully custom design for the
+                    client.</a
+                  >
+                </li>
+                <li data-line="2">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Development"
+                    data-href="#Development"
+                    href="#Development"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >The development team will clone the React template project, using the new Zeplin design and
+                    stylesheet, modify the storybook components to match the customized designs.</a
+                  >
+                </li>
+                <li data-line="3">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Case-by-Case Template Additions"
+                    data-href="#Case-by-Case Template Additions"
+                    href="#Case-by-Case_Template_Additions"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >Any new functionality can be abstracted into a generalized and reusable component for future
+                    projects and saved to the React template.</a
+                  >
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h4 data-heading="Maintenance" id="Maintenance" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Maintenance
+              </h4>
+            </div>
+            <div>
+              <ol>
+                <li data-line="0">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Separation of Concerns"
+                    data-href="#Separation of Concerns"
+                    href="#Separation_of_Concerns"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >Each copy of the templated project becomes a version of it frozen in time and maintained
+                    independently with the client's maintenance budget.</a
+                  >
+                </li>
+                <li data-line="1">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Ever-Improving System"
+                    data-href="#Ever-Improving System"
+                    href="#Ever-Improving_System"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >The main template repository is independently updated with the most useful parts if and when they
+                    are deemed beneficial for future projects.</a
+                  >
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h4 data-heading="Future-proofing" id="Future-proofing" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Future-proofing
+              </h4>
+            </div>
+            <div>
+              <ol>
+                <li data-line="0">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="A Strong Foundation"
+                    data-href="#A Strong Foundation"
+                    href="#A_Strong_Foundation"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >The use of React as the basis for the platform ensures that we're building upon a well-supported
+                    and reliable framework that will likely be around for many years to come.</a
+                  >
+                </li>
+                <li data-line="1">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Flexible By Nature"
+                    data-href="#Flexible By Nature"
+                    href="#Flexible_By_Nature"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >Building the frontend UI to be backend-agnostic allows the backend to be swapped out at will with
+                    any backend as needed, or for the application to be made full-stack.</a
+                  >
+                </li>
+                <li data-line="2">
+                  <a
+                    data-tooltip-position="top"
+                    aria-label="Just The Beginning"
+                    data-href="#Just The Beginning"
+                    href="#Just_The_Beginning"
+                    class="internal-link"
+                    target="_self"
+                    rel="noopener"
+                    >Having the component library be housed within a system such as storybook, and for the designs to be
+                    tightly coupled to that library, allows for React to be swapped out for any frontend framework.</a
+                  >
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3 data-heading="Initial Setup" id="Initial_Setup" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Initial Setup
+              </h3>
+            </div>
+            <div>
+              <h4 data-heading="[Storybook](https://storybook.js.org/)" id="Storybook" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://storybook.js.org/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://storybook.js.org/"
+                  target="_blank"
+                  >Storybook</a
+                >
+              </h4>
+            </div>
+            <div>
+              <div
+                data-callout-metadata=""
+                data-callout-fold="+"
+                data-callout="question"
+                class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-help-circle">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">What is StoryBook?</div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    <span
+                      alt="Pasted image 20230817142845.png"
+                      src="Pasted image 20230817142845.png"
+                      class="internal-embed media-embed image-embed is-loaded"
+                      ><img
+                        alt="Pasted image 20230817142845.png"
+                        src="Work/Storybook Admin UI/attachments/Pasted image 20230817142845.png"
+                    /></span>
+                  </p>
+                  <div data-callout-metadata="" data-callout-fold="" data-callout="quote" class="callout">
+                    <div class="callout-title">
+                      <div class="callout-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="svg-icon lucide-quote">
+                          <path
+                            d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                          <path
+                            d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                        </svg>
+                      </div>
+                      <div class="callout-title-inner">
+                        Quote
+                        <a
+                          data-tooltip-position="top"
+                          aria-label="https://storybook.js.org/"
+                          rel="noopener"
+                          class="external-link"
+                          href="https://storybook.js.org/"
+                          target="_blank"></a>
+                      </div>
+                    </div>
+                    <div class="callout-content">
+                      <p>
+                        Storybook is a frontend workshop for building UI components and pages in isolation. Thousands of
+                        teams use it for UI development, testing, and documentation. It’s open source and free.
+                      </p>
+                    </div>
+                  </div>
+                  <p>
+                    More Info:
+                    <a
+                      data-tooltip-position="top"
+                      aria-label="https://storybook.js.org/docs/react/get-started/why-storybook#benefits"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://storybook.js.org/docs/react/get-started/why-storybook#benefits"
+                      target="_blank"
+                      >Why Storybook?</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 data-heading="Headless UI Library" id="Headless_UI_Library" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Headless UI Library
+              </h5>
+            </div>
+            <div>
+              <p>
+                To avoid unneeded development overhead building standardized components from scratch, the most logical
+                choice is to use a UI library. The downside to most traditional UI libraries is that they are very
+                restrictive on their styling and customization. The solution I propose here is to use something like
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://react-spectrum.adobe.com/react-aria/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://react-spectrum.adobe.com/react-aria/"
+                  target="_blank"
+                  >React Aria from Adobe</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://www.radix-ui.com/primitives"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://www.radix-ui.com/primitives"
+                  target="_blank"
+                  >Radix UI Primitives</a
+                >, or any other "Headless UI Library".
+              </p>
+            </div>
+            <div>
+              <p>
+                These libraries provide accessible UI primitives for your design system and offer behavior,
+                accessibility, and interactions without imposing any rendering, DOM structure, styling methodology, or
+                design-specific details. This allows us to focus on design and customize the components as needed. React
+                Aria specifically ensures consistent behavior across different UIs, supports various interactions
+                (mouse, touch, keyboard, screen reader), and has been tested across different browsers, devices, and
+                platforms.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Customizability" id="Customizability" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Customizability
+              </h5>
+            </div>
+            <div>
+              <p>
+                To allow for this UI to be easily customized, I propose we use
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://storybook.js.org/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://storybook.js.org/"
+                  target="_blank"
+                  >Storybook</a
+                >
+                to build out the library of individual components that make it up. This will allow us to build a very
+                basic template that can be changed extensively by our design team later to match the client's aesthetic
+                and branding. We can build these components out of the
+                <a
+                  data-href="#Headless UI Library"
+                  href="#Headless_UI_Library"
+                  class="internal-link"
+                  target="_self"
+                  rel="noopener"
+                  >Headless UI Library</a
+                >
+                primitives, and add some default styling that can be entirely reconfigured based on the needs of the
+                client.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Documentation &amp; Testing" id="Documentation_&amp;_Testing" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Documentation &amp; Testing
+              </h5>
+            </div>
+            <div>
+              <p>
+                Another advantage of this is documentation. Storybook will allow us to fully document and test the
+                individual components and parts of the system to both ensure future developers are able to quickly get
+                up to speed and hop in and start building, and for us to ensure we've build a robust UI that we can rely
+                on to work consistently.
+              </p>
+            </div>
+            <div>
+              <div data-callout-metadata="" data-callout-fold="+" data-callout="quote" class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-quote">
+                      <path
+                        d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                      <path
+                        d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">
+                    Source:
+                    <a
+                      data-tooltip-position="top"
+                      aria-label="https://storybook.js.org/docs/react/get-started/why-storybook#-test-uis-with-less-effort-and-no-flakes"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://storybook.js.org/docs/react/get-started/why-storybook#-test-uis-with-less-effort-and-no-flakes"
+                      target="_blank"
+                      >Why Storybook?</a
+                    >
+                  </div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    ✅ Test UIs with less effort and no flakes<a
+                      data-tooltip-position="top"
+                      aria-label="https://storybook.js.org/docs/react/get-started/why-storybook#-test-uis-with-less-effort-and-no-flakes"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://storybook.js.org/docs/react/get-started/why-storybook#-test-uis-with-less-effort-and-no-flakes"
+                      target="_blank"></a>
+                  </p>
+                  <p>
+                    Stories are a pragmatic, reproducible way of tracking UI states. Use them to spot-test the UI during
+                    development. Storybook offers built-in workflows for automated&nbsp;<a
+                      data-tooltip-position="top"
+                      aria-label="https://storybook.js.org/docs/react/writing-tests/accessibility-testing"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://storybook.js.org/docs/react/writing-tests/accessibility-testing"
+                      target="_blank"
+                      >Accessibility</a
+                    >,&nbsp;<a
+                      data-tooltip-position="top"
+                      aria-label="https://storybook.js.org/docs/react/writing-tests/interaction-testing"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://storybook.js.org/docs/react/writing-tests/interaction-testing"
+                      target="_blank"
+                      >Interaction</a
+                    >, and&nbsp;<a
+                      data-tooltip-position="top"
+                      aria-label="https://storybook.js.org/docs/react/writing-tests/visual-testing"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://storybook.js.org/docs/react/writing-tests/visual-testing"
+                      target="_blank"
+                      >Visual</a
+                    >&nbsp;testing. Or use stories as test cases by importing them into other JavaScript testing tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 data-heading="Reusability" id="Reusability" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Reusability
+              </h5>
+            </div>
+            <div>
+              <p>
+                Building the interface from the ground up out of small well-tested components will allow us to create a
+                system for building out more custom functionality later for extending the admin panel to fit the
+                specific use-cases of our customers. If one customer requires a map screen in the admin panel, we can
+                build the majority of the UI out of the pre-defined components, leaving the development of the map UI as
+                the only piece of significant development work.
+              </p>
+            </div>
+            <div>
+              <p>
+                Taking this one step further, if we continue the concept of breaking up the UI into components, the
+                aforementioned map can be built first in Storybook before being implemented for the client, and then
+                added to our repertoire of components for reuse in future projects, creating a living document that
+                continually grows in robustness as we use it.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Atomic Design" id="Atomic_Design" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Atomic Design
+              </h5>
+            </div>
+            <div>
+              <p>
+                The concept of
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://bradfrost.com/blog/post/atomic-web-design/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://bradfrost.com/blog/post/atomic-web-design/"
+                  target="_blank"
+                  >atomic design</a
+                >
+                is not foreign to Haneke, as we've previously used it to create a design system for
+                <a
+                  data-href="Frank Crum"
+                  href="Work/Frank Crum/Frank Crum.html"
+                  class="internal-link"
+                  target="_self"
+                  rel="noopener"
+                  >Frank Crum</a
+                >. Our recent meeting with the folks at Southleft highlighted how powerful this concept can be when
+                paired with a system like Storybook. If we are smart about how we build our Storybook components, we can
+                have a flexible and robust system that allows us to reduce development overhead and cost.
+              </p>
+            </div>
+            <div>
+              <p>
+                Starting with the smallest building blocks and working our way up into larger components, templates, and
+                pages, will allow us to create a design system that can be tweaked down to the "Atomic" level, while
+                maintaining design consistency across the project. We will accomplish this with a collaborative effort
+                between design and development.
+              </p>
+            </div>
+            <div>
+              <div
+                data-callout-metadata=""
+                data-callout-fold="+"
+                data-callout="question"
+                class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-help-circle">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">What is Atomic Design?</div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    <img
+                      alt="Atomic Design"
+                      src="https://bradfrost.com/wp-content/uploads/2013/06/atomic-design.png"
+                      referrerpolicy="no-referrer" /><br />
+                    Source:
+                    <a
+                      data-tooltip-position="top"
+                      aria-label="https://bradfrost.com/blog/post/atomic-web-design/"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://bradfrost.com/blog/post/atomic-web-design/"
+                      target="_blank"
+                      >Atomic Design | Brad Frost</a
+                    >
+                  </p>
+                  <p>
+                    Atomic Design is a methodology for creating design systems that focuses on breaking down user
+                    interfaces into smaller, reusable components. It consists of five distinct levels:
+                  </p>
+                  <ol>
+                    <li data-line="7">
+                      Atoms: The basic building blocks, such as HTML tags (buttons, forms, inputs) and abstract elements
+                      like colors and fonts.
+                    </li>
+                    <li data-line="8">
+                      Molecules: Groups of atoms combined to create more complex and functional units, like form inputs
+                      and labels together.
+                    </li>
+                    <li data-line="9">
+                      Organisms: Assemblies of molecules working together to form recognizable sections of a user
+                      interface, like a navigation bar.
+                    </li>
+                    <li data-line="10">
+                      Templates: Groups of organisms arranged in a specific layout to create pages or sections of a
+                      website.
+                    </li>
+                    <li data-line="11">
+                      Pages: Specific instances of templates, showcasing the final design with real content.
+                    </li>
+                  </ol>
+                  <p>Advantages of the Atomic Design methodology include:</p>
+                  <ul class="has-list-bullet">
+                    <li data-line="15">
+                      <div class="list-bullet"></div>
+                      <strong>Modularity:</strong> Design systems built using atomic design are modular, making it
+                      easier to manage and update different parts of a website independently.
+                    </li>
+                    <li data-line="16">
+                      <div class="list-bullet"></div>
+                      <strong>Consistency:</strong> By using consistent atoms, molecules, and organisms, design systems
+                      ensure a cohesive look and feel across the entire interface.
+                    </li>
+                    <li data-line="17">
+                      <div class="list-bullet"></div>
+                      <strong>Reusability:</strong> Components developed using atomic design can be reused throughout a
+                      website or across different projects, saving time and effort.
+                    </li>
+                    <li data-line="18">
+                      <div class="list-bullet"></div>
+                      <strong>Scalability:</strong> Atomic design allows for easy scaling as projects grow, by adding
+                      new components or modifying existing ones.
+                    </li>
+                    <li data-line="19">
+                      <div class="list-bullet"></div>
+                      <strong>Collaboration:</strong> It provides a common language for designers, developers, and
+                      stakeholders, enhancing collaboration and communication.
+                    </li>
+                    <li data-line="20">
+                      <div class="list-bullet"></div>
+                      <strong>Efficiency:</strong> Atomic design streamlines the design and development process by
+                      breaking it down into manageable chunks, reducing redundancy.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5
+                data-heading="Collaborative Approach to Initial Development"
+                id="Collaborative_Approach_to_Initial_Development"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Collaborative Approach to Initial Development
+              </h5>
+            </div>
+            <div>
+              <p>
+                Here I suggest we take a collaborative approach, working together between the design and development
+                teams to decide on the functionality that will influence design. This will allow for the design and dev
+                teams to agree on an initial base design and functionality that will create a framework for the
+                designers to build new versions of the UI.
+              </p>
+            </div>
+            <div>
+              <p>
+                Through this collaborative approach the initial component library is formed. With regular input from
+                both teams, we come up with a storybook that describes the functionality of the admin panel. The basic
+                functionality can be shown in the storybook and the components will be tested and robust with basic
+                styling. Once this is completed, this storybook will form the basis for creating a template AdobeXD.
+              </p>
+            </div>
+            <div>
+              <h4
+                data-heading="Adobe XD and Zeplin Template File"
+                id="Adobe_XD_and_Zeplin_Template_File"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Adobe XD and Zeplin Template File
+              </h4>
+            </div>
+            <div>
+              <h5
+                data-heading="Storybook Informs Design Template"
+                id="Storybook_Informs_Design_Template"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Storybook Informs Design Template
+              </h5>
+            </div>
+            <div>
+              <p>
+                Once the initial Storybook is complete, we will likely have a Adobe XD/Zeplin file that roughly
+                approximates the components within the Storybook. Here, we take this file and organize and standardize
+                it to reflect the final project, so that it can easily be used as a template from which to customize the
+                interface to a client's needs. This template should be a 1 to 1 of the storybook, tailored specifically
+                to the needs of the design team.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Flexible, Extensible" id="Flexible,_Extensible" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Flexible, Extensible
+              </h5>
+            </div>
+            <div>
+              <p>
+                Once the template has been created, matching the functionality of the storybook, it can be used as the
+                basis for customizing the design. Furthermore, if the design team decides to modify this template for
+                the design, it is immediately obvious if this is new or different functionality and can be flagged as
+                such early to avoid surprises. Since these components are ultimately just plain React components and are
+                thoroughly tested, extending or modifying behavior is trivial — especially since it can be flagged early
+                and will not come as a surprise.
+              </p>
+            </div>
+            <div>
+              <h4 data-heading="React Template Project" id="React_Template_Project" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                React Template Project
+              </h4>
+            </div>
+            <div>
+              <h5 data-heading="The Full Project Template" id="The_Full_Project_Template" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                The Full Project Template
+              </h5>
+            </div>
+            <div>
+              <p>
+                After completing the Storybook and XD Template, we can proceed to create a comprehensive template
+                project. This project will include all the necessary frontend components and functionality, providing a
+                complete solution for the project.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="The React Advantage" id="The_React_Advantage" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                The React Advantage
+              </h5>
+            </div>
+            <div>
+              <h6 data-heading="Onboarding Speed" id="Onboarding_Speed" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Onboarding Speed
+              </h6>
+            </div>
+            <div>
+              <p>
+                With React being the
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/"
+                  target="_blank"
+                  >most popular frontend framework</a
+                >, using it as the template for the UI grants us the advantage of having fast onboarding. While there
+                may be some level of learning curve due to Storybook, ultimately the components are simple React
+                components, meaning that it should be easy to hop in and get work done with minimal onboarding time for
+                new contractors.
+              </p>
+            </div>
+            <div>
+              <div data-callout-metadata="" data-callout-fold="+" data-callout="cite" class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-quote">
+                      <path
+                        d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                      <path
+                        d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">
+                    Source:
+                    <a
+                      data-tooltip-position="top"
+                      aria-label="https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/"
+                      target="_blank"
+                      >State of JavaScript 2022: Front-end Frameworks</a
+                    >
+                  </div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    <span
+                      alt="Ratios Over Time - Percentage"
+                      src="Pasted image 20230817132349.png"
+                      class="internal-embed media-embed image-embed is-loaded"
+                      ><img
+                        alt="Ratios Over Time - Percentage"
+                        src="Work/Storybook Admin UI/attachments/Pasted image 20230817132349.png" /></span
+                    ><br />
+                    <span
+                      alt="Ratios Over Time - Rank"
+                      src="Pasted image 20230817132423.png"
+                      class="internal-embed media-embed image-embed is-loaded"
+                      ><img
+                        alt="Ratios Over Time - Rank"
+                        src="Work/Storybook Admin UI/attachments/Pasted image 20230817132423.png"
+                    /></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h6 data-heading="Simplicity" id="Simplicity" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Simplicity
+              </h6>
+            </div>
+            <div>
+              <p>
+                This also allows for the framework itself to be malleable — modifying the framework is no different from
+                development on a regular React application. This, coupled with the component library having testing
+                built-in, should make any new changes easy to implement, easy to write tests for, and easy to verify
+                that they don't break existing functionality.
+              </p>
+            </div>
+            <div>
+              <h6 data-heading="Ecosystem" id="Ecosystem" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Ecosystem
+              </h6>
+            </div>
+            <div>
+              <p>
+                Using the most popular frontend framework also mean having access to some of the best-supported and
+                tried-and-true libraries for implementing large chunks of functionality.
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://immerjs.github.io/immer/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://immerjs.github.io/immer/"
+                  target="_blank"
+                  >State Management</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://tanstack.com/query/v3/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://tanstack.com/query/v3/"
+                  target="_blank"
+                  >Asynchronous Data Fetching</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://reactrouter.com/en/main"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://reactrouter.com/en/main"
+                  target="_blank"
+                  >Application Routing</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://tanstack.com/table/v8"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://tanstack.com/table/v8"
+                  target="_blank"
+                  >Tables</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://final-form.org/docs/react-final-form/getting-started"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://final-form.org/docs/react-final-form/getting-started"
+                  target="_blank"
+                  >Forms</a
+                >, and more can be handled by long-standing open-source libraries that are well-documented and supported
+                by a dedicated team and community.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Backend Agnostic" id="Backend_Agnostic" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Backend Agnostic
+              </h5>
+            </div>
+            <div>
+              <p>
+                The idea here is that the frontend is implemented in a way that is Backend Agnostic. We can swap out
+                backends as needed to suit the needs of the client. Leveraging tools like
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://tanstack.com/query/v3/docs/react/overview"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://tanstack.com/query/v3/docs/react/overview"
+                  target="_blank"
+                  >Tanstack Query React</a
+                >
+                and/or
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://graphql.org/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://graphql.org/"
+                  target="_blank"
+                  >GraphQL</a
+                >, we can build a system that simply expects certain data to be supplied to a particular function and
+                for that function to return an expected payload, without being concerned how the data is being supplied.
+              </p>
+            </div>
+            <div>
+              <div data-callout-metadata="" data-callout-fold="+" data-callout="example" class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-list">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">Example</div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    <a
+                      data-tooltip-position="top"
+                      aria-label="https://tanstack.com/query/v3/docs/react/overview"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://tanstack.com/query/v3/docs/react/overview"
+                      target="_blank"
+                      >Tanstack Query React</a
+                    >
+                    uses a React Hook called "<a
+                      data-tooltip-position="top"
+                      aria-label="https://tanstack.com/query/v3/docs/react/reference/useQuery"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://tanstack.com/query/v3/docs/react/reference/useQuery"
+                      target="_blank"
+                      >useQuery</a
+                    >" simply takes as an argument that either resolves with the data or throws an error. Leveraging
+                    this as the framework for the functionality of the application means that we simply need to ensure
+                    that we're supplying the right data to those functions — the implementation of how the data is sent
+                    or received is irrelevant.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 data-heading="Implementation" id="Implementation" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Implementation
+              </h3>
+            </div>
+            <div>
+              <h4 data-heading="Definition" id="Definition" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Definition
+              </h4>
+            </div>
+            <div>
+              <h5 data-heading="Business as Usual" id="Business_as_Usual" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Business as Usual
+              </h5>
+            </div>
+            <div>
+              <p>
+                When we're in the definition stage of a project, this template serves as one of the many tools in our
+                tool belt. Product Strategy is able to assess whether or not the template makes sense for any given
+                client, and whether or not it works out of the box, will need custom work or extending, or if it's not a
+                fit for the project.
+              </p>
+            </div>
+            <div>
+              <h5
+                data-heading="Early Flagging of Custom Modification"
+                id="Early_Flagging_of_Custom_Modification"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Early Flagging of Custom Modification
+              </h5>
+            </div>
+            <div>
+              <p>
+                As the Product Strategists are determining the fit of the template to a clients needs, they can
+                <a
+                  data-tooltip-position="top"
+                  aria-label="^7ges5v"
+                  data-href="#^7ges5v"
+                  href="#^7ges5v"
+                  class="internal-link"
+                  target="_self"
+                  rel="noopener"
+                  >look at the full breadth of functionality available by using the template react project to see how it
+                  all fits together</a
+                >. If they need to dig in more, they can do so by
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://chakra-ui.netlify.app/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://chakra-ui.netlify.app/"
+                  target="_blank"
+                  >perusing the Storybook</a
+                >
+                to inspect the individual components to determine how well the clients needs align with what is already
+                there.
+              </p>
+            </div>
+            <div><p>From there they can easily determine the fit of what the client needs and whether:</p></div>
+            <div>
+              <ol>
+                <li data-line="0">The basic template can simply be given a fresh coat of paint and shipped as is.</li>
+                <li data-line="1">
+                  The template contains most of the functionality, but will require modification of various components
+                  to make it work.
+                </li>
+                <li data-line="2">
+                  The template contains some of the functionality, but whole new functionality will need to be added on
+                  top to accomplish what the client needs.
+                </li>
+                <li data-line="3">
+                  The template does not match the client's requirements at all, and a ground-up development effort makes
+                  the most sense.
+                </li>
+              </ol>
+            </div>
+            <div>
+              <p>
+                This takes a lot of the guess work out of their job by allowing them intimate access to the system to
+                make their decisions with little to no barrier to entry. It also allows them to easily determine where
+                the template and the final product will differ and document that early, reducing surprises later on.
+              </p>
+            </div>
+            <div>
+              <div data-callout-metadata="" data-callout-fold="+" data-callout="info" class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-info">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="16" x2="12" y2="12"></line>
+                      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">Hosting a Generic Template</div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    I propose that the finalized template project is hosted in a way that is accessible to the Product
+                    Strategy team. This would be a full-featured, functioning version of the project, and the
+                    accompanying StoryBook. This makes determining existing and new functionality at the outset easy for
+                    the PS team.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 data-heading="Design" id="Design" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Design
+              </h4>
+            </div>
+            <div>
+              <h5 data-heading="Business as _(Mostly)_ Usual" id="Business_as_(Mostly)_Usual" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Business as <em>(Mostly)</em> Usual
+              </h5>
+            </div>
+            <div>
+              <p>
+                The design team will take the User Stories and notes from the Product Strategy team and complete a
+                design sprint, creating a beautiful UI for the client as usually. The only change is that this design
+                will be created based on the template that was created previously and will adhere to the functionality
+                laid out in the original Storybook.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Collaborative Additions" id="Collaborative_Additions" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Collaborative Additions
+              </h5>
+            </div>
+            <div>
+              <p>
+                If the product strategy team has flagged in the
+                <a
+                  data-tooltip-position="top"
+                  aria-label="Early Flagging of Custom Modification"
+                  data-href="#Early Flagging of Custom Modification"
+                  href="#Early_Flagging_of_Custom_Modification"
+                  class="internal-link"
+                  target="_self"
+                  rel="noopener"
+                  >previous sprint</a
+                >
+                modifications that will be needed, these changes will be collaborated on between the dev and development
+                teams, ultimately culminating in:
+              </p>
+            </div>
+            <div>
+              <ol>
+                <li data-line="0">
+                  A decision on whether the additional functionality can and should be generalized and added to the
+                  Storybook and React Template, or if it should be a one-off implementation for only the current client.
+                </li>
+                <li data-line="1">
+                  How this is implemented, what the final storybook component for this should look like, and how it
+                  should function.
+                </li>
+              </ol>
+            </div>
+            <div>
+              <p>
+                If it is decided that this should be generalized and fed back into the system for future projects, the
+                same process should be taken as the initial development of the template, but just isolated to this new
+                component.
+              </p>
+            </div>
+            <div>
+              <h4 data-heading="Development" id="Development" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Development
+              </h4>
+            </div>
+            <div>
+              <h5 data-heading="Not Starting from Zero" id="Not_Starting_from_Zero" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Not Starting from Zero
+              </h5>
+            </div>
+            <div>
+              <p>
+                The development team will start their part of the process by cloning the template project, meaning that,
+                ideally, a large part of the work has already been completed. From here, they will simply need to modify
+                the styling of the storybook components to match the final design from Zeplin. Once the styling is set
+                up, the dashboard would just need to be hooked up to the backend and tested by QA.
+              </p>
+            </div>
+            <div>
+              <h5
+                data-heading="Modifications and New Functionality"
+                id="Modifications_and_New_Functionality"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Modifications and New Functionality
+              </h5>
+            </div>
+            <div>
+              <p>
+                Since the components are pre-built and have testing already built in, modifying existing functionality
+                is simplified. Developers can easily verify that the modifications don't break existing functionality
+                and can write test that encompass only the new functionality. Additionally, the styling and
+                modifications should automatically be reflected in the UI, with only minor adjustments to styling being
+                needed to make it all function seamlessly.
+              </p>
+            </div>
+            <div>
+              <p>
+                Similarly, adding new functionality or components is also made easier. Developers can focus on those
+                parts and trust that if their changes inadvertently break things, the testing structure set up will
+                likely catch it.
+              </p>
+            </div>
+            <div>
+              <h4
+                data-heading="Case-by-Case Template Additions"
+                id="Case-by-Case_Template_Additions"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Case-by-Case Template Additions
+              </h4>
+            </div>
+            <div>
+              <p>
+                The team can decide on a case-by-case whether or not any project-specific functionality should be added
+                to the parent template project. In the case that it doesn't make the cut, these additions can be made in
+                the project without concern for generalizing them to work for other use-cases late. If it is decided
+                that they make a good candidate for being added to the template, we can create them as a component in
+                storybook and port that component back to the parent template project's storybook.
+              </p>
+            </div>
+            <div>
+              <div data-callout-metadata="" data-callout-fold="+" data-callout="example" class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-list">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">Example</div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    For instance, let's imagine a client needs a map component on one of the pages of their dashboard.
+                    The team would come together and decide if that's something worth abstracting into a reusable
+                    component for later. Since a map is likely to be something that is needed, it gets added to the
+                    template project and a generic version first, then is imported and customized for the specific
+                    client.
+                  </p>
+                  <p>
+                    The client gets a robust UI component, and the template grows to include another feature that
+                    doesn't require custom development.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 data-heading="Maintenance" id="Maintenance" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Maintenance
+              </h3>
+            </div>
+            <div>
+              <h4 data-heading="Separation of Concerns" id="Separation_of_Concerns" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Separation of Concerns
+              </h4>
+            </div>
+            <div>
+              <h5 data-heading="Freeze Frame(work)" id="Freeze_Frame(work)" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Freeze Frame(work)
+              </h5>
+            </div>
+            <div>
+              <p>
+                Once the project is completed, it becomes a standalone instance frozen in time — meaning that it can be
+                independently maintained. This allows each project have its own maintenance budget and agreement with
+                the client for maintaining it, just like every other project. It's just another project — only it was
+                built much faster.
+              </p>
+            </div>
+            <div>
+              <h5
+                data-heading="Reduction of Overhead, Responsibilities, and Liability"
+                id="Reduction_of_Overhead,_Responsibilities,_and_Liability"
+                style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Reduction of Overhead, Responsibilities, and Liability
+              </h5>
+            </div>
+            <div>
+              <p>
+                Having each project use its own dedicated maintenance budget and be independently kept up to date
+                reduces the burden of maintaining and versioning the Storybook UI and template. Once the project has
+                been completed, it's its own self contained project. When the main template updates, we don't have to
+                worry about conflicts with every project we have used it in.
+              </p>
+            </div>
+            <div>
+              <h4 data-heading="Ever-Improving System" id="Ever-Improving_System" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Ever-Improving System
+              </h4>
+            </div>
+            <div>
+              <h5 data-heading="Growing Template" id="Growing_Template" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Growing Template
+              </h5>
+            </div>
+            <div>
+              <p>
+                When a client needs specific new functionality, the team can come together and make a decision if it's
+                general enough to be a good candidate for the template project. When we decide that it is, we go through
+                the
+                <a data-href="#Initial Setup" href="#Initial_Setup" class="internal-link" target="_self" rel="noopener"
+                  >Initial Setup</a
+                >
+                phase again, but just for that component, generalizing it so that it's reasonably flexible and can be
+                reused. This allows the template to grow and become more full-featured and robust as time goes on.
+              </p>
+            </div>
+            <div>
+              <h5 data-heading="Onward and Upwards" id="Onward_and_Upwards" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Onward and Upwards
+              </h5>
+            </div>
+            <div>
+              <p>
+                The template project is free to improve, grow, and expand independently of all of its children. New
+                features can be added whenever without fear of breaking any existing projects. Every time a new project
+                is started, it used the newest version of the template, meaning it is even more full featured out the
+                gate, and has the potential to even make the next project even faster to spin up.
+              </p>
+            </div>
+            <div>
+              <h3 data-heading="Future-proofing" id="Future-proofing" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Future-proofing
+              </h3>
+            </div>
+            <div>
+              <h4 data-heading="A Strong Foundation" id="A_Strong_Foundation" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                A Strong Foundation
+              </h4>
+            </div>
+            <div>
+              <p>
+                React isn't going anywhere any time soon. It's widely used and flexible with a massive community and
+                tons of support. It's so popular that other frame works
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://qwik.builder.io/docs/getting-started/#2-loading-data"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://qwik.builder.io/docs/getting-started/#2-loading-data"
+                  target="_blank"
+                  >emulate its syntax</a
+                >
+                and add in
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://qwik.builder.io/docs/integrations/react/#qwik-react-%EF%B8%8F"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://qwik.builder.io/docs/integrations/react/#qwik-react-%EF%B8%8F"
+                  target="_blank"
+                  >compatibility</a
+                >
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://github.com/Sawtaytoes/reactjs-solidjs-bridge"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://github.com/Sawtaytoes/reactjs-solidjs-bridge"
+                  target="_blank"
+                  >options</a
+                >
+                to make it interop with them. Using React as the basis for the framework means that the foundations are
+                solid, and are future proofed to an extent right out of the gate.
+              </p>
+            </div>
+            <div>
+              <div data-callout-metadata="" data-callout-fold="+" data-callout="cite" class="callout is-collapsible">
+                <div class="callout-title">
+                  <div class="callout-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-quote">
+                      <path
+                        d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                      <path
+                        d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                    </svg>
+                  </div>
+                  <div class="callout-title-inner">
+                    Source:
+                    <a
+                      data-tooltip-position="top"
+                      aria-label="https://qwik.builder.io/"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://qwik.builder.io/"
+                      target="_blank"
+                      >Framework reimagined for the edge! 📚 Qwik Documentation</a
+                    >
+                  </div>
+                  <div class="callout-fold">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="svg-icon lucide-chevron-down">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="callout-content">
+                  <p>
+                    <span
+                      alt="Qwik.js Homepage"
+                      src="Pasted image 20230817135518.png"
+                      class="internal-embed media-embed image-embed is-loaded"
+                      ><img
+                        alt="Qwik.js Homepage"
+                        src="Work/Storybook Admin UI/attachments/Pasted image 20230817135518.png"
+                    /></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 data-heading="Flexible By Nature" id="Flexible_By_Nature" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Flexible By Nature
+              </h4>
+            </div>
+            <div>
+              <p>
+                While the easiest way for us to spin up this project might be a Ruby on Rails backend like most of our
+                projects, the backend-agnostic structure allows for the backend to be swapped out for any backend. It
+                can be Ruby, Firebase, Supabase, Node.js, or .Net. The frontend doesn't care.
+              </p>
+            </div>
+            <div>
+              <p>
+                To take this one step further: the framework, with a bit of additional configuring, could be moved over
+                to a full-stack framework like
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://nextjs.org/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://nextjs.org/"
+                  target="_blank"
+                  >Next.js</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://remix.run/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://remix.run/"
+                  target="_blank"
+                  >Remix</a
+                >, or
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://qwik.builder.io/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://qwik.builder.io/"
+                  target="_blank"
+                  >Qwik</a
+                >. All that would need to take place is a reconfiguring of the components as outlined in the next
+                section, and implementing the server-side code alongside the frontend code. This is a bit outside of the
+                scope of this report, so I will leave it at that. The important thing is that this is a possibility.
+              </p>
+            </div>
+            <div>
+              <h4 data-heading="Just The Beginning" id="Just_The_Beginning" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Just The Beginning
+              </h4>
+            </div>
+            <div>
+              <p>
+                Since the structure leverages
+                <a data-href="#Atomic Design" href="#Atomic_Design" class="internal-link" target="_self" rel="noopener"
+                  >Atomic Design</a
+                >
+                and the
+                <a
+                  data-tooltip-position="top"
+                  aria-label="Storybook Informs Design Template"
+                  data-href="#Storybook Informs Design Template"
+                  href="#Storybook_Informs_Design_Template"
+                  class="internal-link"
+                  target="_self"
+                  rel="noopener"
+                  >Storybook informs the Design Template</a
+                >, the react version is just one version. While it would obviously require more work, the vast majority
+                of the logic would be already in place for the system to be converted to any frontend framework. The
+                development team can systematically go through the components in the Storybook and convert them to a
+                different framework like
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://svelte.dev/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://svelte.dev/"
+                  target="_blank"
+                  >Svelte</a
+                >,
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://www.solidjs.com/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://www.solidjs.com/"
+                  target="_blank"
+                  >Solid</a
+                >, or
+                <a
+                  data-tooltip-position="top"
+                  aria-label="https://vuejs.org/"
+                  rel="noopener"
+                  class="external-link"
+                  href="https://vuejs.org/"
+                  target="_blank"
+                  >Vue</a
+                >. The system being broken into manageable chunks simplifies this process.
+              </p>
+            </div>
+            <div>
+              <p>
+                Furthermore, the use of the Atomic design lends itself well to the potential of expanding this idea into
+                micro-frontends, with each component being its own self-contained micro-app that can be imported into
+                any project. This is a new concept that has been very slowly gaining traction in the frontend world;
+                should it truly take off, the modular nature of the system is ready.
+              </p>
+            </div>
+            <div>
+              <h2 data-heading="Conclusion" id="Conclusion" style="display: flex">
+                <div class="heading-collapse-indicator collapse-indicator collapse-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg>
+                </div>
+                Conclusion
+              </h2>
+            </div>
+            <div>
+              <p>
+                This proposed solution of creating a standardized Admin UI using React and Storybook for Haneke web
+                projects offers a highly customizable and extensible template for admin and dashboard user interfaces.
+                By leveraging a headless UI library and atomic design principles, the development process is
+                streamlined, allowing for faster onboarding, simplified modifications, and the potential for future
+                expansion into different frontend frameworks. The separation of concerns and maintenance of individual
+                projects ensures efficient upkeep, while the continuous improvement of the main template repository
+                ensures a strong foundation and adaptability for future projects. Overall, this solution provides a
+                flexible and future-proof approach to building admin panels that meet the unique needs of Haneke
+                clients.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-right sidebar">
+        <div class="sidebar-content">
+          <div class="tree-container outline-tree" data-depth="0">
+            <div class="tree-header">
+              <span class="sidebar-section-header">Table Of Contents</span
+              ><button class="clickable-icon collapse-tree-button is-collapsed">
+                <iconify-icon
+                  icon="ph:arrows-in-line-horizontal-bold"
+                  width="18px"
+                  height="18px"
+                  rotate="90deg"
+                  color="currentColor"></iconify-icon>
+              </button>
+            </div>
+            <div class="tree-scroll-area">
+              <div class="tree-item mod-tree-heading" data-depth="1">
+                <div class="tree-item-contents">
+                  <a
+                    class="tree-item-link"
+                    href="#Proposal_for_Development_of_a_Standardized_Admin_UI_for_Haneke_Web_Projects"
+                    ><span class="tree-item-title"
+                      >Proposal for Development of a Standardized Admin UI for Haneke Web Projects</span
+                    ></a
+                  >
+                </div>
+                <div class="tree-item-children">
+                  <div class="tree-item mod-tree-heading" data-depth="2">
+                    <div class="tree-item-contents">
+                      <a class="tree-item-link" href="#Problem"><span class="tree-item-title">Problem</span></a>
+                    </div>
+                    <div class="tree-item-children"></div>
+                  </div>
+                  <div class="tree-item mod-tree-heading" data-depth="2">
+                    <div class="tree-item-contents">
+                      <a class="tree-item-link" href="#Current_Solutions"
+                        ><span class="tree-item-title">Current Solutions</span></a
+                      >
+                    </div>
+                    <div class="tree-item-children"></div>
+                  </div>
+                  <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="2">
+                    <div class="tree-item-contents">
+                      <div class="tree-item-icon collapse-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="svg-icon right-triangle">
+                          <path d="M3 8L12 17L21 8"></path>
+                        </svg>
+                      </div>
+                      <a class="tree-item-link" href="#Proposed_Solution"
+                        ><span class="tree-item-title">Proposed Solution</span></a
+                      >
+                    </div>
+                    <div class="tree-item-children">
+                      <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="3">
+                        <div class="tree-item-contents">
+                          <div class="tree-item-icon collapse-icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="svg-icon right-triangle">
+                              <path d="M3 8L12 17L21 8"></path>
+                            </svg>
+                          </div>
+                          <a class="tree-item-link" href="#Overview"><span class="tree-item-title">Overview</span></a>
+                        </div>
+                        <div class="tree-item-children">
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Initial_Setup"
+                                ><span class="tree-item-title">Initial Setup</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Implementation"
+                                ><span class="tree-item-title">Implementation</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Maintenance"
+                                ><span class="tree-item-title">Maintenance</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Future-proofing"
+                                ><span class="tree-item-title">Future-proofing</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="3">
+                        <div class="tree-item-contents">
+                          <div class="tree-item-icon collapse-icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="svg-icon right-triangle">
+                              <path d="M3 8L12 17L21 8"></path>
+                            </svg>
+                          </div>
+                          <a class="tree-item-link" href="#Initial_Setup"
+                            ><span class="tree-item-title">Initial Setup</span></a
+                          >
+                        </div>
+                        <div class="tree-item-children">
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#[Storybook](https://storybook.js.org/)"
+                                ><span class="tree-item-title">[Storybook](https://storybook.js.org/)</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Headless_UI_Library"
+                                    ><span class="tree-item-title">Headless UI Library</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Customizability"
+                                    ><span class="tree-item-title">Customizability</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Documentation_&amp;_Testing"
+                                    ><span class="tree-item-title">Documentation &amp; Testing</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Reusability"
+                                    ><span class="tree-item-title">Reusability</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Atomic_Design"
+                                    ><span class="tree-item-title">Atomic Design</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Collaborative_Approach_to_Initial_Development"
+                                    ><span class="tree-item-title"
+                                      >Collaborative Approach to Initial Development</span
+                                    ></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#Adobe_XD_and_Zeplin_Template_File"
+                                ><span class="tree-item-title">Adobe XD and Zeplin Template File</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Storybook_Informs_Design_Template"
+                                    ><span class="tree-item-title">Storybook Informs Design Template</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Flexible,_Extensible"
+                                    ><span class="tree-item-title">Flexible, Extensible</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#React_Template_Project"
+                                ><span class="tree-item-title">React Template Project</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#The_Full_Project_Template"
+                                    ><span class="tree-item-title">The Full Project Template</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <div class="tree-item-icon collapse-icon">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      class="svg-icon right-triangle">
+                                      <path d="M3 8L12 17L21 8"></path>
+                                    </svg>
+                                  </div>
+                                  <a class="tree-item-link" href="#The_React_Advantage"
+                                    ><span class="tree-item-title">The React Advantage</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children">
+                                  <div class="tree-item mod-tree-heading" data-depth="6">
+                                    <div class="tree-item-contents">
+                                      <a class="tree-item-link" href="#Onboarding_Speed"
+                                        ><span class="tree-item-title">Onboarding Speed</span></a
+                                      >
+                                    </div>
+                                    <div class="tree-item-children"></div>
+                                  </div>
+                                  <div class="tree-item mod-tree-heading" data-depth="6">
+                                    <div class="tree-item-contents">
+                                      <a class="tree-item-link" href="#Simplicity"
+                                        ><span class="tree-item-title">Simplicity</span></a
+                                      >
+                                    </div>
+                                    <div class="tree-item-children"></div>
+                                  </div>
+                                  <div class="tree-item mod-tree-heading" data-depth="6">
+                                    <div class="tree-item-contents">
+                                      <a class="tree-item-link" href="#Ecosystem"
+                                        ><span class="tree-item-title">Ecosystem</span></a
+                                      >
+                                    </div>
+                                    <div class="tree-item-children"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Backend_Agnostic"
+                                    ><span class="tree-item-title">Backend Agnostic</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="3">
+                        <div class="tree-item-contents">
+                          <div class="tree-item-icon collapse-icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="svg-icon right-triangle">
+                              <path d="M3 8L12 17L21 8"></path>
+                            </svg>
+                          </div>
+                          <a class="tree-item-link" href="#Implementation"
+                            ><span class="tree-item-title">Implementation</span></a
+                          >
+                        </div>
+                        <div class="tree-item-children">
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#Definition"
+                                ><span class="tree-item-title">Definition</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Business_as_Usual"
+                                    ><span class="tree-item-title">Business as Usual</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Early_Flagging_of_Custom_Modification"
+                                    ><span class="tree-item-title">Early Flagging of Custom Modification</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#Design"><span class="tree-item-title">Design</span></a>
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Business_as__(Mostly)__Usual"
+                                    ><span class="tree-item-title">Business as _(Mostly)_ Usual</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Collaborative_Additions"
+                                    ><span class="tree-item-title">Collaborative Additions</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#Development"
+                                ><span class="tree-item-title">Development</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Not_Starting_from_Zero"
+                                    ><span class="tree-item-title">Not Starting from Zero</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Modifications_and_New_Functionality"
+                                    ><span class="tree-item-title">Modifications and New Functionality</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Case-by-Case_Template_Additions"
+                                ><span class="tree-item-title">Case-by-Case Template Additions</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="3">
+                        <div class="tree-item-contents">
+                          <div class="tree-item-icon collapse-icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="svg-icon right-triangle">
+                              <path d="M3 8L12 17L21 8"></path>
+                            </svg>
+                          </div>
+                          <a class="tree-item-link" href="#Maintenance"
+                            ><span class="tree-item-title">Maintenance</span></a
+                          >
+                        </div>
+                        <div class="tree-item-children">
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#Separation_of_Concerns"
+                                ><span class="tree-item-title">Separation of Concerns</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Freeze_Frame(work)"
+                                    ><span class="tree-item-title">Freeze Frame(work)</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a
+                                    class="tree-item-link"
+                                    href="#Reduction_of_Overhead,_Responsibilities,_and_Liability"
+                                    ><span class="tree-item-title"
+                                      >Reduction of Overhead, Responsibilities, and Liability</span
+                                    ></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="4">
+                            <div class="tree-item-contents">
+                              <div class="tree-item-icon collapse-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="svg-icon right-triangle">
+                                  <path d="M3 8L12 17L21 8"></path>
+                                </svg>
+                              </div>
+                              <a class="tree-item-link" href="#Ever-Improving_System"
+                                ><span class="tree-item-title">Ever-Improving System</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children">
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Growing_Template"
+                                    ><span class="tree-item-title">Growing Template</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                              <div class="tree-item mod-tree-heading" data-depth="5">
+                                <div class="tree-item-contents">
+                                  <a class="tree-item-link" href="#Onward_and_Upwards"
+                                    ><span class="tree-item-title">Onward and Upwards</span></a
+                                  >
+                                </div>
+                                <div class="tree-item-children"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tree-item mod-tree-heading mod-collapsible is-collapsed" data-depth="3">
+                        <div class="tree-item-contents">
+                          <div class="tree-item-icon collapse-icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="svg-icon right-triangle">
+                              <path d="M3 8L12 17L21 8"></path>
+                            </svg>
+                          </div>
+                          <a class="tree-item-link" href="#Future-proofing"
+                            ><span class="tree-item-title">Future-proofing</span></a
+                          >
+                        </div>
+                        <div class="tree-item-children">
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#A_Strong_Foundation"
+                                ><span class="tree-item-title">A Strong Foundation</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Flexible_By_Nature"
+                                ><span class="tree-item-title">Flexible By Nature</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                          <div class="tree-item mod-tree-heading" data-depth="4">
+                            <div class="tree-item-contents">
+                              <a class="tree-item-link" href="#Just_The_Beginning"
+                                ><span class="tree-item-title">Just The Beginning</span></a
+                              >
+                            </div>
+                            <div class="tree-item-children"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tree-item mod-tree-heading" data-depth="2">
+                    <div class="tree-item-contents">
+                      <a class="tree-item-link" href="#Conclusion"><span class="tree-item-title">Conclusion</span></a>
+                    </div>
+                    <div class="tree-item-children"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
